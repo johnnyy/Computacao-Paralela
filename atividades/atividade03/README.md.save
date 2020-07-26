@@ -1,0 +1,4 @@
+O código parallel_sum.c realiza os dois itens da atividade, para realizar o item (a) é só definir o chunk como 1.
+No item (b) o chunk foi definido em 3.
+
+

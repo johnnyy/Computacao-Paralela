@@ -1,0 +1,4 @@
+Números de Cores      Tempo de Execução
+2                     128s
+4                     65s
+8                     60s
