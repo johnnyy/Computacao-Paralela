@@ -49,11 +49,12 @@ int main(int argc, char *argv[]) {
     if (rank == 0) {
         printf("With n = %ld.\n", n);
         printf("Integral from %lf to %lf = %lf \n", a, b, total);
+        endtime   = MPI_Wtime();
+        printf("That took %f seconds\n",endtime-starttime);
     }
 
     MPI_Finalize();
-    endtime   = MPI_Wtime();
-    printf("That took %f seconds\n",endtime-starttime);
+    
 
     return 0;
 }
