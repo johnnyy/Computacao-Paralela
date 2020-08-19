@@ -42,8 +42,8 @@ int main(int argc, char *argv[]) {
 	for (int destination = 1; destination < size; destination++) {
 
 
-        	MPI_Send(vector1, p, MPI_DOUBLE, destination, tag, MPI_COMM_WORLD);
-        	MPI_Send(vector2 , p, MPI_DOUBLE, destination, tag+1, MPI_COMM_WORLD);
+        	MPI_Send(vector1+destination*p, p, MPI_DOUBLE, destination, tag, MPI_COMM_WORLD);
+        	MPI_Send(vector2+destination*p , p, MPI_DOUBLE, destination, tag+1, MPI_COMM_WORLD);
         }
 
 
