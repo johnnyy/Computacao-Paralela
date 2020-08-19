@@ -1,3 +1,4 @@
+// Correção: OK. 2,5 pontos.
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>

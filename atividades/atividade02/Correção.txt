@@ -1,0 +1,5 @@
+Correção: Parcial. 2,3 Pontos.
+
+Questão 01, Item 3: Você precisa deixar claro que o valor informado, 1250, ainda precisa ser multiplicado por 100, pois são as iterações do laço interno.
+
+

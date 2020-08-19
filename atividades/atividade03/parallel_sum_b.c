@@ -1,3 +1,4 @@
+// Correção: OK. Ficou diferente do que acho que o OpenMP do GCC faz, entretanto é uma opção de implementação. 1,5 Pontos.
 #include <stdio.h>
 #include <omp.h>
 
