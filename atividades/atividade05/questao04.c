@@ -59,7 +59,7 @@ int main(int argc, char *argv[]) {
             total += parcial;
         }
         printf("Total: %lf\n",total);
- 	endtime   = MPI_Wtime();
+        endtime   = MPI_Wtime();
         printf("That took %f seconds\n",endtime-starttime);
     }
 
