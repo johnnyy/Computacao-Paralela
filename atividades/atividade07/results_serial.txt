@@ -1,0 +1,6 @@
+# Core i5 8250U
+# N     Tempo mtxMult       Tempo mtxMult_linemajor
+64      1.385 ms                 2.23 ms
+256     89.882 ms                128.666 ms
+1024    12755.8 ms               21906 ms
+2048    131213 ms                287507 ms
