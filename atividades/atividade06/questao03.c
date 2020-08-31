@@ -18,7 +18,8 @@ int main(int argc, char *argv[]) {
     float * vector1, *retorno;
     float * vector2;
     float * vector1_c, * vector2_c;
-
+    double starttime, endtime;
+    starttime = MPI_Wtime();
 
 
    
@@ -74,6 +75,8 @@ int main(int argc, char *argv[]) {
         for(int i =0; i<size;i++){
             total +=retorno[i];
         }
+        endtime   = MPI_Wtime();
+        printf(" %f seconds\n",endtime-starttime);
         printf("Produto Escalar: %lf\n",total );
     }
     

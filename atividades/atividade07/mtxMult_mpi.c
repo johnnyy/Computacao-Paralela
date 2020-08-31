@@ -75,7 +75,7 @@ int main(int argc, char *argv[]) {
     MPI_Gather(c_parcial, elem, MPI_DOUBLE, c, elem, MPI_DOUBLE, root, MPI_COMM_WORLD);
     if(rank ==root){
         endtime   = MPI_Wtime();
-        printf("That took %f seconds\n",endtime-starttime);
+        printf("%f seconds\n",endtime-starttime);
     }
     
 
