@@ -59,47 +59,83 @@ int main(int argc, char *argv[]) {
         MPI_Status status[size - 1];
 
         //Será retorado no máximo chunk primos por execucao
-        int primos[size - 1][chunk];
+        int primos[size ][chunk];
         int total_num_received[size - 1];
 
         int number_process_used;
         int number_send ;
         int primos_total[n];
         int primos_total_numero = 0;
-
+        int local_work = 0;
+        //Caso o valor n seja menor que o chunk é executado local
         if(number_chunks == 0){
             for(int i = 2; i < n; i++){
                 if(primo(i)){
+                    primos_total[primos_total_numero] = i;
                     primos_total_numero++;
-                    primos_total[i-2] = i;
+
 
                 }
             }
         }
         while(number_chunks_used < number_chunks){
             number_process_used = 0;
-            for(int i = 1; i < size && number_chunks_used < number_chunks; i++){
+            for(int i = 0; i <size && number_chunks_used < number_chunks; i++){
+            //Informa a posição inicial e cada processo sabe a quantidade em um chunk
 
-                //Informa a posição inicial e cada processo sabe a quantidade em um chunk
-                number_send = number_chunks_used*chunk + 1;
-                MPI_Isend(&number_send,1, MPI_INT, i, tag, MPI_COMM_WORLD, &send_request[i-1]);
+               number_send = number_chunks_used*chunk + 1;
+
+                if(i != 0){
+                    MPI_Isend(&number_send,1, MPI_INT, i, tag, MPI_COMM_WORLD, &send_request[i-1]);
+                    MPI_Irecv(primos[i], chunk, MPI_INT, i, tag, MPI_COMM_WORLD, &recv_request[i-1]);
+
+                }
+                else{
+
+                    local_work = number_send;
+
+                }
+                printf("%d send \n",number_send );
+
                 number_chunks_used++;
-                MPI_Irecv(primos[i-1], chunk, MPI_INT, i, tag, MPI_COMM_WORLD, &recv_request[i-1]);
                 number_process_used++;
             }
 
+            int primos_encontrados = 0;
+            printf("%d local\n",local_work );
+            for(int i = local_work; i < local_work + chunk; i++){
+                if(primo(i)){
+                    primos[0][primos_encontrados] = i;
+                    primos_encontrados++;
+                }
+            }
 
-            MPI_Waitall(number_process_used, send_request, status);
 
-            MPI_Waitall(number_process_used, recv_request, status);
+
+            MPI_Waitall(number_process_used-1, send_request, status);
+
+            MPI_Waitall(number_process_used-1, recv_request, status);
+            printf("Teste\n");
 
             for(int i =0; i < number_process_used ; i++){
-                MPI_Get_count(&status[i], MPI_INT, &total_num_received[i]);
-                for(int j = 0; j < total_num_received[i]; j++){
-                    primos_total[primos_total_numero] = primos[i][j];
+                if(i ==0){
+                    for(int j = 0; j < primos_encontrados; j++){
+                        primos_total[primos_total_numero] = primos[i][j];
 
-                    primos_total_numero++;
+                        primos_total_numero++;
+                    }
                 }
+                else{
+
+
+                    MPI_Get_count(&status[i-1], MPI_INT, &total_num_received[i-1]);
+                    for(int j = 0; j < total_num_received[i-1]; j++){
+                        primos_total[primos_total_numero] = primos[i][j];
+
+                        primos_total_numero++;
+                    }
+                }   
+
 
             }
 
