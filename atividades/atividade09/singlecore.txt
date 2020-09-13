@@ -1,0 +1,17 @@
+	add r2,r0,r0   ; tid=0
+	add r3,r0,r0
+	add r4,r0,r0
+L1:
+	lfp f1,r3 (vecA) ; load vector A
+	lfp f2,r3 (vecB) ; load vector B
+	lfp f3,r3 (vecC) ; load vector C
+	lfp f4,r3 (vecD) ; load vector D
+	addf f1,f1,f2
+	addf f1,f1,f3
+	addf f1,f1,f4
+	sfp f1,r3 (vecE) ; store in vecE
+	addi r3,r3,#4
+	addi r2,r2,#1    ; tid=tid+1
+	slti r4,r2,#128  
+	bne r4,L1
+	
