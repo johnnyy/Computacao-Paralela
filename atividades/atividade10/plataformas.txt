@@ -1,0 +1,14 @@
+Quantidade de Plataformas: 1
+
+Plataforma[0]: Intel Gen OCL Driver
+Quantidade de dispositivos Intel Gen OCL Driver: 1
+=== Dispositivos da Plataforma Intel Gen OCL Driver: ===
+ -- Dispositivo com id 0 --
+ DEVICE_NAME = Intel(R) UHD Graphics Coffee Lake Mobile GT2
+ DEVICE_VENDOR = Intel
+ DEVICE_MAX_COMPUTE_UNITS = 24
+ CL_DEVICE_MAX_WORK_GROUP_SIZE = 256
+ CL_DEVICE_MAX_WORK_ITEM_DIMENSIONS = 3
+ CL_DEVICE_MAX_WORK_ITEM_SIZES = 512, 512, 512 
+
+
