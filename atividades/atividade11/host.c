@@ -42,8 +42,7 @@ char *programBuffer;
 cl_program cpProgram; // Programa OpenCL
 cl_kernel ckKernel;	  // Kernel OpenCL
 
-size_t szGlobalWorkSize = 512*256; // global work size
-size_t szLocalWorkSize = 256;	 // local work size
+
 
 // Função Main
 // ***************************************************************************************
@@ -85,8 +84,8 @@ int main(int argc, char *argv[])
 	printf("Plataforma em procura: %s, Dispositivo em procura: %s.\n\n", chosenPlatform, chosenDevice);
 
 	// Configurar as dimensões de trabalho Global e Local
-	//szLocalWorkSize = 256;
-	//szGlobalWorkSize = 512;
+	size_t szGlobalWorkSize = 512*256; // global work size
+	size_t szLocalWorkSize = 256;	 // local work size
 	
 	cl_int size_vector = szGlobalWorkSize;
 
