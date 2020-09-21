@@ -42,7 +42,7 @@ char *programBuffer;
 cl_program cpProgram; // Programa OpenCL
 cl_kernel ckKernel;	  // Kernel OpenCL
 
-size_t szGlobalWorkSize = 512; // global work size
+size_t szGlobalWorkSize = 512*256; // global work size
 size_t szLocalWorkSize = 256;	 // local work size
 
 // Função Main
@@ -429,12 +429,12 @@ int main(int argc, char *argv[])
 	int i;
 	for (i = 0; i < size_vector; i++)
 	{
-		printf("%lf float", srcC[i]);
+		//printf("%lf float", srcC[i]);
 		result += srcC[i];
 	}
 	result  = result*4.0;
 
-	printf("size_vector_C     : %d\n", size_vector);
+	//printf("size_vector_C     : %d\n", size_vector);
 	printf("Valor de PI            : %lf\n", result);
 
 	// Limpar
