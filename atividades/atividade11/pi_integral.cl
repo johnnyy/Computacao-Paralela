@@ -12,7 +12,7 @@ __kernel void pi_integral(__global float* c, int intervals_number) {
 	float n_1 = 1.0;
 	
 	
-	while (iGID < intervals_number) {
+	while (iGID <= intervals_number) {
 	
 		x = iGID * dx;
 		fx = sqrt(n_1 - x * x );
@@ -21,10 +21,11 @@ __kernel void pi_integral(__global float* c, int intervals_number) {
 		
 
 		iGID += global_size;
+		c[ID] = integral;
 
 	}
 	
-	c[ID] = integral;
+
 
 
 }
