@@ -1,4 +1,4 @@
-
+// Nota 0,5
 
 #include <stdio.h>
 #include <math.h>
