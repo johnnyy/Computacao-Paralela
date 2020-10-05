@@ -1,3 +1,4 @@
+// Nota 0,5
 // Cálculo das Médias
 #include <stdio.h>
 #include <stdlib.h>
