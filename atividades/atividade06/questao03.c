@@ -1,4 +1,5 @@
-// Nota 0,5
+// Nota Questão 03 0,5
+// Nota Questão 04 0,8 
 #include <stdio.h>
 #include <math.h>
 #include <mpi.h>
@@ -20,6 +21,7 @@ int main(int argc, char *argv[]) {
     float * vector2;
     float * vector1_c, * vector2_c;
     double starttime, endtime;
+    // Depois de MPI_Init.
     starttime = MPI_Wtime();
 
 
