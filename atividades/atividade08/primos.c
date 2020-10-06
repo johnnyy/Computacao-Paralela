@@ -1,3 +1,4 @@
+// Nota: 1,5
 #include <stdio.h>
 #include <math.h>
 #include <mpi.h>
@@ -50,6 +51,7 @@ int main(int argc, char *argv[]) {
 
     }
 
+    // Certo. É uma chamada bloqueante, mas ainda não é o grosso da computação.
     MPI_Bcast(&chunk,1, MPI_INT,root, MPI_COMM_WORLD);
 
     if(rank == root){
@@ -59,6 +61,7 @@ int main(int argc, char *argv[]) {
         MPI_Status status[size - 1];
 
         //Será retorado no máximo chunk primos por execucao
+	// Isso aqui sem malloc é propenso a erro.
         int primos[size ][chunk];
         int total_num_received[size - 1];
 
