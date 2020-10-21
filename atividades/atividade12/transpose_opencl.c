@@ -1,5 +1,4 @@
-// Correção: 1,0. Parece correto, mas não consegui executar na GPU NVIDIA. Sei que você usou Intel,
-// mas entrei em contato via Slack para discutirmos a solução.
+// Correção: 2,5
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
