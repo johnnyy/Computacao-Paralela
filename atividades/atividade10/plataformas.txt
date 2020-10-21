@@ -1,3 +1,4 @@
+; Correção: OK. Nota: 2,5
 Quantidade de Plataformas: 1
 
 Plataforma[0]: Intel Gen OCL Driver

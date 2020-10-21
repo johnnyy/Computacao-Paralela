@@ -1,3 +1,4 @@
+	; Correção: OK. Nota: 1,0	
 	; CORE 1
 
 

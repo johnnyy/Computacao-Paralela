@@ -7,8 +7,8 @@ __kernel void Transpose(__global float* a, __global float* b, int N) {
 	int i = 0;
 	
 	while (i < N) {
-	
-		b[N * i + iGID] = a[N * iGID + i];
+        // Correção: certo, apenas invertendo as coordenadas. 	
+ 		b[N * i + iGID] = a[N * iGID + i];
 		i++;
 	}
 	

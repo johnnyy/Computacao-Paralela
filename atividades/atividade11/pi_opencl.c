@@ -1,3 +1,4 @@
+// Correção: OK. Nota: 2,5
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -88,6 +89,8 @@ int main(int argc, char *argv[])
 	//Quantidade de iterações da integral
 	//
 	//
+	// Correção: Você deixou fixo, mas se pudesse variar poderia fazer uma versão que, dada
+	// a quantidade de workItems, o número de iterações dentro do kernel seria bem pequeno.
 	cl_int intervals_number = 1024*1024;
 	//
 	//

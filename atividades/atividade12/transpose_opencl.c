@@ -1,3 +1,5 @@
+// Correção: 1,0. Parece correto, mas não consegui executar na GPU NVIDIA. Sei que você usou Intel,
+// mas entrei em contato via Slack para discutirmos a solução.
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -92,6 +94,8 @@ int main (int argc, char *argv[]) {
 	srcB = (cl_float *) malloc(sizeof(cl_float) * N * N);
 
 	// Inicializar os arrays
+	// Correção: os números de 0 até (n * n) - 1. Certo, vamos ver como você fez
+	// a verificação. 
 	for (int i = 0; i < N*N; i++) {
 		*(srcA + i) = i;
 	}
@@ -410,6 +414,8 @@ int main (int argc, char *argv[]) {
 	clFinish(cmdQueue);
 
   	// Verifica o resultado
+	// Correção: colocou para imprimir a matriz toda. Poderia ter feito
+	// de uma forma mais elegante, mas tudo bem. 
 	result = 0.0;
 	int i;
 	for (i = 0; i < N * N; i++) {

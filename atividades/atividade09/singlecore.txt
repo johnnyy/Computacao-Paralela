@@ -1,3 +1,4 @@
+; Correção: OK. Nota: 1,0	
 	add r2,r0,r0   ; tid=0
 	add r3,r0,r0
 	add r4,r0,r0
